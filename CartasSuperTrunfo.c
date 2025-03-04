@@ -37,13 +37,17 @@ int main() {
     
     printf("Digite o Estado onde fica a cidade 1: \n");
     scanf(" %[^\n]", &estado1);
-    
+    // ClaytonMark: Aqui e durante o resto do código eu utilizei o " %[^\n]" pois ele é utilizado para ler uma linha de texto, 
+    // incluindo espaços, até que o usuário pressione Enter
+    // ClaytonMark: isso ajudou a não ter problemas quando exibia com printf o nome dos estados ou cidades 
+    // que continham espaço como "São Paulo" e "Santana de Parnaiba"
+
     printf("Digite o código da carta da cidade 1: (ex: A01 sendo A: Estado A ou seja, primeiro estado que esta sendo registrado ou B se for o segundo, e assim por diante \n01 sendo 01: Cidade 01 ou seja, primeira cidade que esta sendo registrada no estado A ou B e assim por diante \nCADA ESTADO PERMITE SEREM REGISTRADAS APENAS 4 CIDADES ou seja A01, A02, A03, A04 são válidas e A05 inválida!) \n");
     scanf("%s", &carta1);
     
     printf("Digite o nome da cidade 1: \n");
     scanf(" %[^\n]", &cidade1);
-    
+
     printf("Digite a população da cidade 1: (Apenas números, ex: 150500200) \n");
     scanf("%d", &populacao1);
     
@@ -64,6 +68,15 @@ int main() {
 
     // ClaytonMark: Aqui eu utilizei o printf pra formatar e mostrar na tela as informações digitadas pelo usuário anteriormente!!
     printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %d \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado1, carta1, cidade1, populacao1, area1, pib1, num_pontos_tur1);
+    
+    // ClaytonMark: Aqui eu criei duas variáveis para calcular a densidade populacional e pib per capita da cidade 1
+    // ClaytonMark: Aqui eu utilizei o cast para converter como float as variáveis e dividi uma pela outra
+    float densidade_pop1 = (float) populacao1 / area1;
+    float pib_PC1 = (float) pib1 / populacao1;
+    
+    // ClaytonMark: Aqui eu usei o printf para mostrar na tela o resultado dos dois calculos anteriores, já formatados corretamente
+    printf("E de acordo com a População, Área e PIB da Cidade 1, Calculamos as seguintes informações: \n");
+    printf("Densidade Populacional: %.2f hab/km² \nPIB per Capita: R$%.2f \n", densidade_pop1, pib_PC1);
 
     // ClaytonMark: Aqui eu utilizei o printf para se comunicar e pedir pro usuário digitar as informações da carta 2 
     // e utilizei o scanf pro usuário poder digitar as informações!! (também utilizei printf pra avisar ao fim que tudo foi registrado
@@ -95,6 +108,15 @@ int main() {
 
     // ClaytonMark: Aqui eu utilizei o printf pra formatar e mostrar na tela as informações digitadas pelo usuário anteriormente!!
     printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %d \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado2, carta2, cidade2, populacao2, area2, pib2, num_pontos_tur2);
+    
+    // ClaytonMark: Aqui eu criei duas variáveis para calcular a densidade populacional e pib per capita da cidade 2
+    // ClaytonMark: Aqui eu utilizei o cast para converter como float as variáveis e dividi uma pela outra
+    float densidade_pop2 = (float) populacao2 / area2;
+    float pib_PC2 = (float) pib2 / populacao2;
+    
+    // ClaytonMark: Aqui eu usei o printf para mostrar na tela o resultado dos dois calculos anteriores, já formatados corretamente
+    printf("E de acordo com a População, Área e PIB da Cidade 2, Calculamos as seguintes informações: \n");
+    printf("Densidade Populacional: %.2f hab/km² \nPIB per Capita: R$%.2f \n", densidade_pop2, pib_PC2);
 
     return 0;
 }
