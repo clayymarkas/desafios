@@ -14,14 +14,14 @@ int main() {
     char estado1[50] = "São Paulo";
     char carta1[4] = "A00";
     char cidade1[50] = "Itapevi";
-    int populacao1 = 50000;
+    unsigned long int populacao1 = 50000;
     float area1 = 555555;
     double pib1 = 1516532;
     int num_pontos_tur1 = 6;
     char estado2[50] = "Santa Catarina";
     char carta2[4] = "A01";
     char cidade2[50] = "Lages";
-    int populacao2 = 55500;
+    unsigned long int populacao2 = 55500;
     float area2 = 566555;
     double pib2 = 1664532;
     int num_pontos_tur2 = 7;
@@ -49,7 +49,7 @@ int main() {
     scanf(" %[^\n]", &cidade1);
 
     printf("Digite a população da cidade 1: (Apenas números, ex: 150500200) \n");
-    scanf("%d", &populacao1);
+    scanf("%lu", &populacao1);
     
     printf("Digite a área da cidade 1: (Apenas números, ex: 2500200) \n");
     scanf("%f", &area1);
@@ -67,7 +67,7 @@ int main() {
     // Exiba os valores inseridos para cada atributo da cidade, um por linha.
 
     // ClaytonMark: Aqui eu utilizei o printf pra formatar e mostrar na tela as informações digitadas pelo usuário anteriormente!!
-    printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %d \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado1, carta1, cidade1, populacao1, area1, pib1, num_pontos_tur1);
+    printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %lu \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado1, carta1, cidade1, populacao1, area1, pib1, num_pontos_tur1);
     
     // ClaytonMark: Aqui eu criei duas variáveis para calcular a densidade populacional e pib per capita da cidade 1
     // ClaytonMark: Aqui eu utilizei o cast para converter como float as variáveis e dividi uma pela outra
@@ -93,7 +93,7 @@ int main() {
     scanf(" %[^\n]", &cidade2);
     
     printf("Digite a população da cidade 2: (Apenas números, ex: 150500200) \n");
-    scanf("%d", &populacao2);
+    scanf("%lu", &populacao2);
     
     printf("Digite a área da cidade 2: (Apenas números, ex: 2500200) \n");
     scanf("%f", &area2);
@@ -107,7 +107,7 @@ int main() {
     printf("Parabéns você registrou todos os dados da cidade 2 na carta, confira-os logo abaixo: \n");
 
     // ClaytonMark: Aqui eu utilizei o printf pra formatar e mostrar na tela as informações digitadas pelo usuário anteriormente!!
-    printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %d \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado2, carta2, cidade2, populacao2, area2, pib2, num_pontos_tur2);
+    printf("Estado: %s \nCódigo da Carta: %s \nCidade: %s \nPopulação: %lu \nÁrea em km²: %.f km² \nPIB: R$%.lf \nNúmero de pontos turísticos: %d \n", estado2, carta2, cidade2, populacao2, area2, pib2, num_pontos_tur2);
     
     // ClaytonMark: Aqui eu criei duas variáveis para calcular a densidade populacional e pib per capita da cidade 2
     // ClaytonMark: Aqui eu utilizei o cast para converter como float as variáveis e dividi uma pela outra
@@ -117,6 +117,22 @@ int main() {
     // ClaytonMark: Aqui eu usei o printf para mostrar na tela o resultado dos dois calculos anteriores, já formatados corretamente
     printf("E de acordo com a População, Área e PIB da Cidade 2, Calculamos as seguintes informações: \n");
     printf("Densidade Populacional: %.2f hab/km² \nPIB per Capita: R$%.2f \n", densidade_pop2, pib_PC2);
+
+    // ClaytonMark: Aqui eu defini o super poder das 2 cartas como float calculando os atributos de cada uma, e logo após exibi ambos na tela
+    float superPoderCarta1 = (float)(populacao1 + area1 + pib1 + num_pontos_tur1 + pib_PC1 - densidade_pop1), superPoderCarta2 = (float)(populacao2 + area2 + pib2 + num_pontos_tur2 + pib_PC2 - densidade_pop2);
+    printf("Super Poder Carta 1: %.2f \nSuper Poder Carta 2: %.2f \n", superPoderCarta1, superPoderCarta2);
+
+    // ClaytonMark: Aqui eu comparei as 2 cartas atributo por atributo e expliquei os resultados 1 e 0 são respectivamente 
+    // carta 1 venceu e carta 2 venceu
+    printf("Comparação de Cartas atributo por atributo: \n(ex: 1- Carta 1 venceu, 0- Carta 2 Venceu \n");
+    
+    printf("População: %d \n"), populacao1 > populacao2;
+    printf("Área: %d \n"), area1 > area2;
+    printf("PIB: %d \n"), pib1 > pib2;
+    printf("Número de Pontos Turísticos: %d \n"), num_pontos_tur1 > num_pontos_tur2;
+    printf("PIB per Capita: %d \n"), pib_PC1 > pib_PC2;
+    printf("Densidade Populacional: %d \n"), densidade_pop1 < densidade_pop2;
+    printf("Super Poder: %d \n"), superPoderCarta1 > superPoderCarta2;
 
     return 0;
 }
