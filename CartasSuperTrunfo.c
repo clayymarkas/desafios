@@ -134,5 +134,16 @@ int main() {
     printf("Densidade Populacional: %d \n", densidade_pop1 < densidade_pop2);
     printf("Super Poder: %d \n", superPoderCarta1 > superPoderCarta2);
 
+    // ClaytonMark: Aqui eu vou comparar as 2 cartas, apenas um atributo e exibir a carta que venceu usando lógica
+
+    printf("Comparação de Cartas (Apenas um Atributo) usando lógica \nO Atributo escolhido é: PIB per Capita! \n");
+    printf("Carta 1 - %s (%s): %.2f \n", cidade1, estado1, pib_PC1);
+    printf("Carta 2 - %s (%s): %.2f \n", cidade2, estado2, pib_PC2);
+        if(pib_PC1 > pib_PC2){
+            printf("A Carta 1 %s venceu!", cidade1);
+        }else{
+            printf("A Carta 2 %s venceu!", cidade2);
+        }
+        
     return 0;
 }
